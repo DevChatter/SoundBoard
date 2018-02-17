@@ -74,5 +74,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevChatter.SoundBoard.Infra\DevChatter.SoundBoard.Infra.csproj">
+      <Project>{09C25CB6-8936-4EE5-B02A-3FCBAA6A8C21}</Project>
+      <Name>DevChatter.SoundBoard.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

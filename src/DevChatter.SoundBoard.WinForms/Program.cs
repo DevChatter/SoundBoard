@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevChatter.SoundBoard.Infra;
 
 namespace DevChatter.SoundBoard.WinForms
 {
@@ -37,7 +38,19 @@ namespace DevChatter.SoundBoard.WinForms
                 _notifyIcon.ShowBalloonTip(0, "Configure Menu", "You Clicked Configure", ToolTipIcon.None);
             };
 
-            _notifyIcon.ContextMenu.MenuItems.AddRange(new[] { menuItemConfigure, menuItemExit });
+            var menuItemPlayAudio = new MenuItem { Text = @"Play Audio" };
+            menuItemPlayAudio.Click += (sender, args) =>
+            {
+                var audioPlayer = new AudioPlayer();
+                audioPlayer.PlayAudioTrack(@"over9000.mp3");
+            };
+
+            _notifyIcon.ContextMenu.MenuItems.AddRange(new[]
+            {
+                menuItemPlayAudio,
+                menuItemConfigure,
+                menuItemExit
+            });
 
             Application.Run();
 
